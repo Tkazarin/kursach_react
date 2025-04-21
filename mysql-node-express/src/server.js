@@ -4,7 +4,7 @@ const cors = require("cors");
 const HttpException = require('./utils/HttpException.utils');
 const errorMiddleware = require('./middleware/error.middleware');
 const userRouter = require('./routes/user.route');
-
+const bookRouter = require('./routes/book.route')
 // Инициализация express
 const app = express();
 
@@ -25,6 +25,7 @@ const port = Number(process.env.PORT || 3331);
 
 // Использование маршрутов пользователей
 app.use(`/api/v1/users`, userRouter);
+app.use('/api/v1/shelf', bookRouter);
 
 // Обработка ошибки 404
 app.all('/{*any}', (req, res, next) => {
@@ -32,7 +33,6 @@ app.all('/{*any}', (req, res, next) => {
     next(err);
 });
 
-// Использование middleware для обработки ошибок
 app.use(errorMiddleware);
 
 // Запуск сервера

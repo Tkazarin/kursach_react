@@ -33,7 +33,7 @@ class UserController {
         res.send(userWithoutPassword);
     };
 
-    getUserByuserName = async (req, res, next) => {
+    getUserByUserName = async (req, res, next) => {
         const user = await UserModel.findOne({ username: req.params.username });
         if (!user) {
             throw new HttpException(404, 'User not found');
