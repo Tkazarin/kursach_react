@@ -9,6 +9,7 @@ const auth = (...roles) => {
         try {
             const authHeader = req.headers.authorization;
             const bearer = 'Bearer ';
+            console.log(req.headers);
 
             if (!authHeader || !authHeader.startsWith(bearer)) {
                 throw new HttpException(401, 'Access denied. No credentials sent!');

@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS book;
 CREATE TABLE IF NOT EXISTS book
   (
      id_book         INT PRIMARY KEY auto_increment,
-     title   VARCHAR(40) UNIQUE NOT NULL,
+     title   VARCHAR(40) NOT NULL,
      author   VARCHAR(40) NOT NULL,
      description VARCHAR(300),
      id_author INT NOT NULL,

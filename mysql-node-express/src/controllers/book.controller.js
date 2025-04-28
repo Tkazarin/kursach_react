@@ -51,19 +51,15 @@ class BookController {
     updateBook = async (req, res, next) => {
         this.checkValidation(req);
         const { id_user, ...userWithoutId } = req.currentUser;
-        console.log("mew");
         const book = await BookModel.findOne({ id_book: req.params.id_book });
-        console.log("mewmew");
         if (!book) {
             throw new HttpException(404, 'Book not found');
         }
 
         if (book.id_author != id_user) {
-            throw new HttpException(403, 'You have no rights to delete this book');
+            throw new HttpException(403, 'You have no rights to update this book');
         }
-        console.log("mewmewmew");
         const result = await BookModel.update(req.body, req.params.id_book);
-        console.log("mew");
 
         if (!result) {
             throw new HttpException(404, 'Something went wrong');

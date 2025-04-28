@@ -4,7 +4,10 @@ const cors = require("cors");
 const HttpException = require('./utils/HttpException.utils');
 const errorMiddleware = require('./middleware/error.middleware');
 const userRouter = require('./routes/user.route');
-const bookRouter = require('./routes/book.route')
+const bookRouter = require('./routes/book.route');
+const opinionRouter = require('./routes/opinion.route');
+const s3Router = require('./routes/s3.route')
+
 // Инициализация express
 const app = express();
 
@@ -14,11 +17,11 @@ dotenv.config();
 // Парсинг запросов с содержимым типа: application/json
 app.use(express.json());
 
-// Включение CORS для всех запросов
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true,
+}));
 
-// Включение предварительных запросов (pre-flight)
-app.options('/{*any}', cors());
 
 // Определение порта
 const port = Number(process.env.PORT || 3331);
@@ -26,6 +29,9 @@ const port = Number(process.env.PORT || 3331);
 // Использование маршрутов пользователей
 app.use(`/api/v1/users`, userRouter);
 app.use('/api/v1/shelf', bookRouter);
+app.use('/api/v1/into_shelf', opinionRouter);
+app.use('/api/v2/bucket_work', s3Router);
+
 
 // Обработка ошибки 404
 app.all('/{*any}', (req, res, next) => {

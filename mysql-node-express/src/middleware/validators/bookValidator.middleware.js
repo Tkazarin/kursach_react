@@ -1,17 +1,21 @@
 const { body } = require('express-validator');
 
-exports.createBookSchema = [
+exports.createOpinionSchema = [
     body('title')
-        .exists().withMessage('title is required')
-        .isLength({ min: 3 }).withMessage('Must be at least 3 chars long')
-        .isString().withMessage('Author must be a string'),
+        .exists().withMessage('Title is required')
+        .isLength({ min: 3, max: 40 }).withMessage('Title must be between 1 and 40 characters')
+        .isString().withMessage('Title must be a string'),
     body('author')
-        .exists().withMessage('author is required')
-        .isLength({ min: 3 }).withMessage('Must be at least 3 chars long')
+        .exists().withMessage('Author is required')
+        .isLength({ min: 3, max: 40 }).withMessage('Author must be between 1 and 40 characters')
         .isString().withMessage('Author must be a string'),
     body('size')
         .optional()
-        .isInt().withMessage('Size  must be an integer'),
+        .isInt().withMessage('Size must be an integer'),
+    body('description')
+        .optional()
+        .isString().withMessage('Description must be a string')
+        .isLength({ max: 300 }).withMessage('Description must be at most 300 characters'),
     body('progress')
         .optional()
         .isInt().withMessage('Size  must be an integer')
@@ -20,7 +24,7 @@ exports.createBookSchema = [
                 throw new Error('Progress must be less than or equal to size');
             }
             return true;
-            }),
+        }),
     body('raiting')
         .optional()
         .matches(/^(10|[1-9])$/, 'g')
@@ -40,6 +44,10 @@ exports.updateBookSchema = [
         .optional()
         .isLength({ min: 3 }).withMessage('Must be at least 3 chars long')
         .isString().withMessage('Author must be a string'),
+    body('description')
+        .optional()
+        .isString().withMessage('Description must be a string')
+        .isLength({ max: 300 }).withMessage('Description must be at most 300 characters'),
     body('size')
         .optional()
         .isInt().withMessage('Size  must be an integer'),

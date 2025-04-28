@@ -38,12 +38,22 @@ class BookModel {
         return result;
     }
 
+    findByTitleAndUser = async (title, id_user) => {
+        const sql = `SELECT * FROM ${this.tableName} WHERE title = ? AND id_author = ?`;
+        const result = await query(sql, [title, id_user]);
+        if (!result.length) {
+            return null;
+        }
+        return result[0];
+    }
 
-    create = async ({ title, author, id_author, size=null, progress = null, raiting = null, file_img = null, file = null }) => {
+
+
+    create = async ({ title, author, id_author, description = null, size=null, progress = null, raiting = null, file_img = null, file = null }) => {
         const sql = `INSERT INTO ${this.tableName}
-        (title, author, id_author, size, progress, raiting, file_img, file) VALUES (?,?,?,?,?,?,?,?)`;
+        (title, author, id_author, description, size, progress, raiting, file_img, file) VALUES (?,?,?,?,?,?,?,?,?)`;
 
-        const result = await query(sql, [title, author, id_author, size, progress, raiting, file_img, file]);
+        const result = await query(sql, [title, author, id_author, description, size, progress, raiting, file_img, file]);
         const affectedRows = result ? result.affectedRows : 0;
 
         return affectedRows;
