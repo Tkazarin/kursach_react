@@ -63,13 +63,11 @@ class UserController {
 
     updateUser = async (req, res, next) => {
         this.checkValidation(req);
-
         await this.hashPassword(req);
 
         const { confirm_password, ...restOfUpdates } = req.body;
 
-        // do the update query and get the result
-        // it can be partial edit
+
         const result = await UserModel.update(restOfUpdates, req.params.id_user);
 
         if (!result) {
@@ -109,7 +107,6 @@ class UserController {
             throw new HttpException(401, 'Incorrect password!');
         }
 
-        // user matched!
         const secretKey = process.env.SECRET_JWT || "";
         const token = jwt.sign({ user_id: user.id_user.toString() }, secretKey, {
             expiresIn: '24h'
@@ -127,7 +124,6 @@ class UserController {
         }
     }
 
-    // hash password if it exists
     hashPassword = async (req) => {
         if (req.body.password) {
             req.body.password = await bcrypt.hash(req.body.password, 8);

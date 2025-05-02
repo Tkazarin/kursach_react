@@ -31,27 +31,26 @@ exports.createUserSchema = [
 
 exports.updateUserSchema = [
     body('username')
-        .optional()
+        .optional({ nullable: true })
         .isLength({ min: 3 })
         .withMessage('Must be at least 3 chars long'),
     body('name')
-        .optional()
+        .optional({ nullable: true })
         .isAlpha()
         .withMessage('Must be only alphabetical chars')
         .isLength({ min: 3 })
         .withMessage('Must be at least 3 chars long'),
     body('email')
-        .optional()
+        .optional({ nullable: true })
         .isEmail()
         .withMessage('Must be a valid email')
         .normalizeEmail(),
     body('role')
-        .optional()
+        .optional({ nullable: true })
         .isIn([Role.Admin, Role.SuperUser])
         .withMessage('Invalid Role type'),
     body('password')
-        .optional()
-        .notEmpty()
+        .optional({ nullable: true })
         .isLength({ min: 4 })
         .withMessage('Password must contain at least 4 characters')
         .isLength({ max: 10 })
@@ -59,7 +58,7 @@ exports.updateUserSchema = [
         .custom((value, { req }) => !!req.body.confirm_password)
         .withMessage('Please confirm your password'),
     body('confirm_password')
-        .optional()
+        .optional({ nullable: true })
         .custom((value, { req }) => value === req.body.password)
         .withMessage('confirm_password field must have the same value as the password field'),
     body()

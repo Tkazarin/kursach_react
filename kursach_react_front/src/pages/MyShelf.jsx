@@ -1,5 +1,7 @@
 import {useEffect, useRef, useState} from 'react';
 import BookCard from '../components/BookCard';
+import EditBookModal from "../components/EditBook";
+import EditUserInfoModal from "../components/EditUser";
 
 const S3UploadCard = async (files) => {
     const fileNames = files.map(f => f.name);
@@ -34,6 +36,8 @@ function MyShelf() {
     const [error, setError] = useState('');
     const containerRef = useRef(null);
     const [showAddModal, setShowAddModal] = useState(false);
+    const [editBook, setEditBook] = useState(null);
+    const [editUser, setEditUser] = useState(null);
     const [form, setForm] = useState({
         title: "",
         author: "",
@@ -136,8 +140,6 @@ function MyShelf() {
         return type === 'image/png' || type === 'image/jpeg';
     }
 
-
-
     async function handleSubmit(e) {
         e.preventDefault();
 
@@ -237,8 +239,13 @@ function MyShelf() {
         return (
             <div className="my-shelf-content">
                 <div className="profile_my_shelf">
-                    <button className="profile-btn_my_shelf profile-edit-btn_my_shelf">
-                        <span className="icon_my_shelf icon-edit_my_shelf">{/* Ваш SVG или иконка позже */}</span>
+                    <button className="profile-btn_my_shelf profile-edit-btn_my_shelf"
+                            onClick={() => {
+                                setEditUser(userInfo);
+                            }}
+                            title="Редактировать пользователя"
+                    >
+                        <span className="icon_my_shelf icon-edit_my_shelf">{/* Ваш сука SVG или иконка позже */}</span>
                     </button>
                     <button
                         className="profile-btn_my_shelf profile-logout-btn_my_shelf"
@@ -266,6 +273,7 @@ function MyShelf() {
                                     <BookCard
                                         book={b}
                                         onHidden={() => handleRemoveBook(b.id_book)}
+                                        onEdit={() => setEditBook(b)}
                                     />
                                 </li>
                             ))
@@ -280,13 +288,54 @@ function MyShelf() {
                             </button>
                         </li>
                     </ul>
+                    {editBook && (
+                        <EditBookModal
+                            book={editBook}
+                            onClose={() => setEditBook(null)}
+                            onEdited={async updatedBook => {
+                                const token = localStorage.getItem('token');
+                                const newBooks = await fetch('http://localhost:4000/api/v1/shelf/my-books', {
+                                    headers: { "Authorization": "Bearer " + token }
+                                }).then(r => r.json());
+                                setBooks(newBooks);
+                                setEditBook(null);
+                            }}
+
+                            userInfo={userInfo}
+                        />
+                    )}
+                    {editUser && (
+                        <EditUserInfoModal
+                            onClose={() => setEditUser(null)}
+                            onEdited={async updatedBook => {
+                                const token = localStorage.getItem('token');
+                                const newInfo = await fetch('http://localhost:4000/api/v1/users/whoami', {
+                                    headers: { "Authorization": "Bearer " + token }
+                                }).then(r => r.json());
+                                setUserInfo(newInfo);
+                                setEditUser(null);
+                            }}
+                            userInfo={userInfo}
+                        />
+                    )}
                     {showAddModal && (
                         <div className="add-book-modal-bg">
                             <form className="add-book-modal" onSubmit={handleSubmit}>
                                 <button
                                     type="button"
                                     className="add-book-modal-close"
-                                    onClick={() => setShowAddModal(false)}
+                                    onClick={() => {
+                                        setShowAddModal(false);
+                                        setForm({
+                                            title: "",
+                                            author: "",
+                                            size: null,
+                                            description: null,
+                                            progress: null,
+                                            file_img: null,
+                                            file: null
+                                        });
+                                    }}
                                     aria-label="Закрыть"
                                 >×</button>
                                 <h2 className="add-book-modal-title">Новая книга</h2>

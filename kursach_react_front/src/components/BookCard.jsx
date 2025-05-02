@@ -24,7 +24,7 @@ async function fetchPresignedUrl(downloadFileName) {
     }
 }
 
-function BookCard({ book, onHidden}) {
+function BookCard({ book, onHidden, onEdit}) {
     const id_book = book.id_book;
     const [downloadLoading, setDownloadLoading] = useState(false);
     const [isDeleting, setIsDeleting] = React.useState(false);
@@ -120,7 +120,7 @@ function BookCard({ book, onHidden}) {
                     <li className="card-control">
                         <button
                             className="icon-btn"
-                            onClick={() => console.log("edited!!!")}
+                            onClick={() => onEdit(book)}
                             title="Редактировать"
                         >
                             <svg className="icon icon--2x">

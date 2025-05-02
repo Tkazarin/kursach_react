@@ -60,7 +60,6 @@ class BookModel {
     }
 
     update = async (params, id_book) => {
-        console.log(params, id_book);
         const { columnSet, values } = multipleColumnSet(params)
 
         const sql = `UPDATE book SET ${columnSet} WHERE id_book = ?`;
