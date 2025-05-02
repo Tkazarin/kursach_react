@@ -1,0 +1,210 @@
+.main-button {
+    background: var(--black-blue);
+    width: 80%;
+    height: 7vh;
+    border: 2px solid var(--dark-blue);
+    cursor: pointer;
+    font-size: 22px;
+    color: transparent;
+    overflow: hidden;
+}
+.myshelf {
+    transition:
+            transform 0.3s;
+}
+
+.myshelf:hover {
+    rotate: 5deg;
+    scale: 1.2;
+}
+
+.login {
+    transition:
+            transform 0.3s;
+}
+
+.login:hover {
+    rotate: 5deg;
+    scale: 1.2;
+}
+
+.signup {
+    transition:
+            transform 0.3s;
+}
+
+.signup:hover {
+    rotate: -5deg;
+    scale: 1.2;
+}
+
+.main-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
+}
+
+.main-text {
+    font-size: 2.0rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
+}
+
+.pause {
+    margin-top: 2.5em;
+    font-size: 2.5rem;
+}
+.buttons-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    align-items: center;
+    margin-bottom: 4vh;
+}
+
+.about-text {
+    font-size: 2.0rem;
+}
+
+.login-container {
+    background: var(--black-blue);
+    color: var(--cust-red);
+    border: 2px solid var(--dark-blue);
+    width: 100%;
+    height: 80%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.login-title {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--cust-red);
+    text-align: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.login-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+    border: 2px solid var(--dark-blue);
+    border-radius: 0;
+    background: var(--black-blue);
+    color: var(--cust-red);
+    font-size: 1.1rem;
+    box-sizing: border-box;
+}
+
+.login-button {
+    width: 100%;
+    max-width: 400px;
+    padding: 1rem;
+    background: var(--black-blue);
+    color: var(--cust-red);
+    border: 2px solid var(--dark-blue);
+    border-radius: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.login-button:hover {
+    background: var(--dark-blue);
+}
+
+.login-message {
+    margin-top: 1.2rem;
+    text-align: center;
+    width: 100%;
+    color: var(--cust-red);
+}
+
+.register-container {
+    background: var(--black-blue);
+    color: var(--cust-red);
+    border: 2px solid var(--dark-blue);
+    width: 100%;
+    height: 80%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.register-title {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--cust-red);
+    text-align: center;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.register-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+    border: 2px solid var(--dark-blue);
+    border-radius: 0;
+    background: var(--black-blue);
+    color: var(--cust-red);
+    font-size: 1.1rem;
+    box-sizing: border-box;
+}
+
+.register-button {
+    width: 100%;
+    max-width: 400px;
+    padding: 1rem;
+    background: var(--black-blue);
+    color: var(--cust-red);
+    border: 2px solid var(--dark-blue);
+    border-radius: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.register-button:hover {
+    background: var(--dark-blue);
+}
+
+.register-message {
+    margin-top: 1.2rem;
+    text-align: center;
+    width: 100%;
+    color: var(--cust-red);
+}

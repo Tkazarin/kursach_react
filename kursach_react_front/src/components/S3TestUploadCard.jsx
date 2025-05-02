@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 const S3UploadCard = async (files) => {
-    // files — это [{name: 'test.JPG', file: File}, ...]
     const fileNames = files.map(f => f.name);
 
     const res = await fetch('http://localhost:4000/api/v2/bucket_work/post_url', {

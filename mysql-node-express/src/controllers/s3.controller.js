@@ -37,7 +37,6 @@ class S3Controller {
                             Key: fileName,
                         });
                         const url = await getSignedUrl(s3, command, {expiresIn: 90000});
-                        console.log(url);
                         return {
                             fileName,
                             url,
@@ -75,7 +74,6 @@ class S3Controller {
                     });
 
                     const url = await getSignedUrl(s3, command, { expiresIn: 900 });
-                    console.log(url);
                     return {
                         fileName,
                         url,

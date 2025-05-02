@@ -1,0 +1,157 @@
+*::before,*::after{
+    box-sizing: border-box;
+}
+*{
+    box-sizing: border-box;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+h1,h2{
+    margin: 0;
+}
+.book-card{
+    display:flex;
+    height:60vh;
+    width:70vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    border-radius: 1%;
+    background: var(--dirty-white);
+    color: var(--cust-orange);
+    position: relative;
+    border-color: var(--border-color);
+    border-width: 5px;
+    border-style: solid;
+    margin: auto auto 10px;
+}
+
+.bookpic{
+    flex-basis: 50%;
+    background-size: cover;
+    background-position: 50% 50%;
+    border-color: var(--border-color);
+    border-width: 5px;
+    border-style: solid;
+}
+.book img{
+    width: 100%;
+}
+.bookinfo *{
+    margin: 0;
+    padding: 0;
+}
+.bookinfo{
+    flex-basis: 50%;
+    padding: 10% 5%;
+    border-width: 5px;
+}
+.bookinfo .card-title{
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-bottom: 5%;
+}
+.bookinfo .card-author{
+    font-size: 1.03rem;
+}
+
+.bookinfo{
+    position: relative;
+}
+ul.card-controls {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 64px;
+    height: 100%;
+    background: none;
+    border-color: var(--border-color);
+    border-width: 5px;
+}
+
+ul.card-controls li {
+    flex: 1 1 0;
+    margin: 0;
+    padding-bottom: 10px;
+    display: flex;
+    background-color: var(--cust-orange);
+    border-color: var(--border-color);
+    border-style: solid;
+    border-width: 5px;
+}
+
+.card-controls a,
+.card-controls button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;   /* на всю ширину колонки */
+    height: 100%;  /* на всю возможную высоту */
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.card-controls a:active,
+.card-controls button:active,
+.card-controls a:focus,
+.card-controls button:focus {
+    outline: none;
+}
+
+svg{
+    max-width: 100%;
+}
+.icon--2x {
+    font-size: 2rem;
+}
+svg.icon{
+    display: inline-block;
+    font-size: 1rem;
+    height: 1em;
+    vertical-align: middle;
+    width: 1em;
+    fill: #24b15e;
+    font-size: 1.4rem;
+    opacity: 0.9;
+    transition:opacity 0.3s ease;
+}
+.card-controls a:hover svg.icon {
+    opacity: 1;
+}
+svg.deletesvg{
+    fill: #e34a4a;
+}
+.invisible {
+    left: -999px;
+    overflow: hidden;
+    position: absolute;
+    top: -999px;
+}
+.deleteme{
+    animation:deleteanimation 1.5s cubic-bezier(0.55, -0.04, 0.91, 0.94) forwards;
+    transform-origin: 100% 0%;
+}
+@keyframes deleteanimation {
+    0% {
+        opacity: 1;
+        transform: rotateZ(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(600px) rotateZ(-90deg);
+    }
+}

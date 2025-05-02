@@ -23,16 +23,18 @@ function UserLogin() {
         if (res.ok) {
             localStorage.setItem('token', data.token);
             setMessage('Успешный вход');
+            window.location.href = '/my_shelf';
         } else {
             setMessage(data.message || 'Ошибка авторизации');
         }
     };
 
     return (
-        <div>
-            <h2>Вход</h2>
-            <form onSubmit={handleSubmit}>
+        <div className="login-container">
+            <h2 className="login-title">Вход</h2>
+            <form className="login-form" onSubmit={handleSubmit}>
                 <input
+                    className="login-input"
                     name="email"
                     type="email"
                     placeholder="Email"
@@ -41,6 +43,7 @@ function UserLogin() {
                     required
                 />
                 <input
+                    className="login-input"
                     name="password"
                     type="password"
                     placeholder="Пароль"
@@ -48,9 +51,9 @@ function UserLogin() {
                     onChange={handleChange}
                     required
                 />
-                <button type="submit">Войти</button>
+                <button className="login-button" type="submit">Войти</button>
             </form>
-            <div>{message}</div>
+            <div className="login-message">{message}</div>
         </div>
     );
 }

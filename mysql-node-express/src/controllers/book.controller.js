@@ -35,6 +35,16 @@ class BookController {
         res.send(books);
     };
 
+    getBookByTitleAndUser = async (req, res, next) => {
+        const { id_user, ...userWithoutId } = req.currentUser;
+        const title = req.params.book_title;
+        const book = await BookModel.findByTitleAndUser(title, id_user);
+        if (!book) {
+            throw new HttpException(404, 'Book not found for this');
+        }
+        res.send(book);
+    };
+
 
     createBook = async (req, res, next) => {
         this.checkValidation(req);
