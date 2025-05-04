@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import '../styles/statics.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -48,15 +48,15 @@ export default function Main() {
             <div className="buttons-container">
                 {authorized ? (
                     <button className="main-button myshelf" onClick={() => navigate('/my_shelf')}>
-                        Ресурс 1 (только для своих)
+                        <img src="/my-profile.svg" alt="" style={{ width: 'auto', height: '50px', verticalAlign: 'middle' }}/>
                     </button>
                 ) : (
                     <>
                         <button className="main-button login" onClick={() => navigate('/welcome/user')}>
-                            Кнопка 1
+                            <img src="/login.svg" alt="" style={{ width: 'auto', height: '50px', verticalAlign: 'middle' }}/>
                         </button>
                         <button className="main-button signup" onClick={() => navigate('/nice_to_meet_you/user')}>
-                            Кнопка 2
+                            <img src="/sign-up.svg" alt="" style={{ width: 'auto', height: '50px', verticalAlign: 'middle' }}/>
                         </button>
                     </>
                 )}

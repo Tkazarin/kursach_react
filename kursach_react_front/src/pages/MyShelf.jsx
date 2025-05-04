@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import BookCard from '../components/BookCard';
 import EditBookModal from "../components/EditBook";
 import EditUserInfoModal from "../components/EditUser";
@@ -149,7 +149,6 @@ function MyShelf() {
             return;
         }
 
-
         const token = localStorage.getItem('token');
         const nickname = userInfo.username;
         const coverFile = form.file_img;
@@ -245,7 +244,7 @@ function MyShelf() {
                             }}
                             title="Редактировать пользователя"
                     >
-                        <span className="icon_my_shelf icon-edit_my_shelf">{/* Ваш сука SVG или иконка позже */}</span>
+                        <img src="/edit-1.svg" alt="" style={{ width: 'auto', height: '50px', verticalAlign: 'middle' }}/>
                     </button>
                     <button
                         className="profile-btn_my_shelf profile-logout-btn_my_shelf"
@@ -255,7 +254,7 @@ function MyShelf() {
                         }}
                         title="Выйти"
                     >
-                        <span className="icon_my_shelf icon-logout_my_shelf">{/* Ваш SVG или иконка */}</span>
+                        <img src="/exit.svg" alt="" style={{ width: 'auto', height: '50px', verticalAlign: 'middle' }}/>
                     </button>
 
                     <div className="profile-item_my_shelf">{userInfo.name}</div>
@@ -284,7 +283,7 @@ function MyShelf() {
                         )}
                         <li>
                             <button className="add-button" onClick={() => setShowAddModal(true)}>
-                                Добавить
+                                <img src="/plus-1.svg" alt="" style={{ width: 'auto', height: '50px', verticalAlign: 'middle' }}/>
                             </button>
                         </li>
                     </ul>

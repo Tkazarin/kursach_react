@@ -75,10 +75,11 @@ class OpinionController {
         const title = req.params.book_title;
         const book = await BookModel.findByTitleAndUser(title, id_user);
         const opinion = await OpinionModel.findOne({ id_opinion: req.params.id_opinion });
+        console.log(id_user);
+        console.log(book.id_author);
         if (!opinion) {
             throw new HttpException(404, 'Opinion not found');
         }
-
         if (book.id_author != id_user) {
             throw new HttpException(403, 'You have no rights to delete this Opinion');
         }

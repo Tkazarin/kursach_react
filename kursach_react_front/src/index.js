@@ -4,6 +4,7 @@ import './styles/main_style.css';
 import AppRouter from './router/AppRouter';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+document.title = "plateaus"
 root.render(
   <React.StrictMode>
     <AppRouter />

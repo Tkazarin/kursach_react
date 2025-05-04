@@ -1,0 +1,139 @@
+.newbookpic {
+    min-width: 120px;
+    height: 170px;
+    background-size: cover;
+    background-position: center;
+}
+
+.opinion-content {
+    background-color: var(--dirty-white);
+    color: var(--cust-orange);
+}
+
+.opinionshelf {
+    height: 49vh;
+    overflow-y: auto;
+    margin-bottom: 30px;
+}
+
+.book-profile {
+    position: relative;
+    gap: 5px;
+    height: 30vh;
+}
+
+.book-profile-btn {
+    border: none;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: var(--cust-orange);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0px;
+    flex-shrink: 0;
+}
+
+.book-profile-btn:hover {
+    scale: 3;
+    rotate: 30deg;
+}
+
+.book-profile-edit-btn {
+    top: 0px;
+    left: 0px;
+}
+
+.book-profile-back-btn {
+    top: 0px;
+    right: 0px;
+}
+
+.book-info-wrapper {
+    position:absolute;
+    left: 20%;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    flex: 1;
+    min-width: 0;
+}
+
+.newbookpic {
+    min-width: 20vw;
+    width: 20%;
+    max-width: 50vw;
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+}
+
+.book-info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.book-title {
+    font-size: 1.18rem;
+    font-weight: 700;
+    margin-bottom: 3px;
+    word-break: break-word;
+}
+
+.book-author, .book-size {
+    font-size: 1.03rem;
+}
+
+.book-description {
+    margin-top: 6px;
+    font-size: 0.98rem;
+    line-height: 1.32;
+    overflow: auto;
+}
+
+
+
+.icon_my_shelf {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+.icon-edit_my_shelf {}
+.icon-logout_my_shelf {}
+
+.prohibited {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.add-button-opinion {
+    background: var(--soft-red);
+    width: 100%;
+    height: 9vh;
+    border: 7px solid var(--border-color);
+    cursor: pointer;
+    color: transparent;
+    overflow: hidden;
+    margin-bottom: 2vh;
+}
+
+.add-book-modal-field {
+    resize: vertical;
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 8px;
+    text-align: center;
+    color: var(--cust-brown);
+    background: var(--cust-yellow);
+    border: none;
+}

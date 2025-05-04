@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/BookCard.css';
 
 async function fetchPresignedUrl(downloadFileName) {
@@ -29,7 +30,8 @@ function BookCard({ book, onHidden, onEdit}) {
     const [downloadLoading, setDownloadLoading] = useState(false);
     const [isDeleting, setIsDeleting] = React.useState(false);
     const [isHidden, setIsHidden] = React.useState(false);
-    const [imgUrl, setImgUrl] = useState("https://raw.githubusercontent.com/Poojavpatel/BookStoreApp/master/img/jungle.jpg");
+    const [imgUrl, setImgUrl] = useState("/back-book.png");
+    const navigate = useNavigate();
 
     useEffect(() => {
         let cancelled = false;
@@ -38,7 +40,7 @@ function BookCard({ book, onHidden, onEdit}) {
                 const url = await fetchPresignedUrl(book.file_img);
                 if (url && !cancelled) setImgUrl(url);
             } else {
-                setImgUrl("https://raw.githubusercontent.com/Poojavpatel/BookStoreApp/master/img/jungle.jpg");
+                setImgUrl("/back-book.png");
             }
         }
         getUrl();
@@ -111,9 +113,7 @@ function BookCard({ book, onHidden, onEdit}) {
                     {book.file &&
                         <li className="card-control">
                             <a href="#" onClick={handleDownload}>
-                                <svg className="icon icon--2x">
-                                    <use xlinkHref="#download" />
-                                </svg>
+                                <img src="/download.svg" alt="" style={{ width: '60px', height: 'auto', verticalAlign: 'middle' }}/>
                                 <span className="invisible">{downloadLoading ? 'Загрузка...' : 'Файл'}</span>
                             </a>
                         </li>}
@@ -123,9 +123,7 @@ function BookCard({ book, onHidden, onEdit}) {
                             onClick={() => onEdit(book)}
                             title="Редактировать"
                         >
-                            <svg className="icon icon--2x">
-                                <use xlinkHref="#edit" />
-                            </svg>
+                            <img src="/edit-2.svg" alt="" style={{ width: '60px', height: 'auto', verticalAlign: 'middle' }}/>
                             <span className="invisible">Edit</span>
                         </button>
                     </li>
@@ -138,18 +136,19 @@ function BookCard({ book, onHidden, onEdit}) {
                             <svg className="icon icon--2x deletesvg">
                                 <use xlinkHref="#delete" />
                             </svg>
-                            <span className="invisible">Delete</span>
+                            <img src="/delete-2.svg" alt="" style={{ width: '60px', height: 'auto', verticalAlign: 'middle' }}/>
                         </button>
                     </li>
                     <li className="card-control opinionbutton">
                         <button
                             className="icon-btn"
-                            onClick={() => console.log("edited!!!")}
+                            onClick={() => {
+                                const opinionPath = `/into_my_shelf/${book.title.replace(/ /g, "_")}/opinions`;
+                                navigate(opinionPath);
+                            }}
                             title="Мнения"
                         >
-                            <svg className="icon icon--2x opinionsvg">
-                                <use xlinkHref="#opinion" />
-                            </svg>
+                            <img src="/opinion.svg" alt="" style={{ width: '60px', height: 'auto', verticalAlign: 'middle' }}/>
                             <span className="invisible">Opinion</span>
                         </button>
                     </li>

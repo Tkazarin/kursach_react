@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="512.0px" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 512 512" width="512.0px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs/>
+<g id="Слой-1">
+<path d="M255.984 55.2943C188.937 55.2943 134.609 129.926 134.609 222.013C134.609 314.1 188.937 388.763 255.984 388.763C323.032 388.763 377.391 314.1 377.391 222.013C377.391 129.926 323.032 55.2943 255.984 55.2943Z" fill="none" opacity="1" stroke="#a80c20" stroke-linecap="butt" stroke-linejoin="round" stroke-width="10"/>
+<path d="M110.105 222.029C110.105 108.938 175.424 17.2594 256 17.2594C336.576 17.2594 401.895 108.938 401.895 222.029C401.895 316.873 351.033 398.766 288.679 422.043C283.049 424.144 314.38 493.979 314.867 494.587C315.279 495.1 201.362 494.163 194.463 494.163C181.637 494.163 230.735 424.475 218.884 420.113C156.284 397.069 110.105 317.118 110.105 222.029Z" fill="none" opacity="1" stroke="#a80c20" stroke-linecap="butt" stroke-linejoin="round" stroke-width="10"/>
+<path d="M148.525 302.845L302.854 70.9915" fill="none" opacity="1" stroke="#a80c20" stroke-linecap="butt" stroke-linejoin="round" stroke-width="5.83753"/>
+<path d="M240.113 261.018L343.96 103.804" fill="none" opacity="1" stroke="#a80c20" stroke-linecap="butt" stroke-linejoin="round" stroke-width="5.15239"/>
+</g>
+</svg>

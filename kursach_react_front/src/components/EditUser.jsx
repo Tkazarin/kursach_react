@@ -57,12 +57,12 @@ function EditUserInfoModal({ onClose, onEdited, userInfo }) {
                 errors.name = 'Имя должно содержать только буквы';
             }
         }
-        if (form.email !== undefined) {
+        if (form.email !== null) {
             if (typeof form.email !== 'string' || !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(form.email.trim())) {
                 errors.email = 'Введите корректный email';
             }
         }
-        if (form.password !== undefined) {
+        if (form.password !== null) {
             if (typeof form.password !== 'string' || form.password.trim().length < 4) {
                 errors.password = 'Пароль должен содержать минимум 4 символа';
             }
@@ -73,7 +73,7 @@ function EditUserInfoModal({ onClose, onEdited, userInfo }) {
                 errors.confirm_password = 'Подтвердите пароль';
             }
         }
-        if (form.password !== undefined && form.confirm_password !== undefined) {
+        if (form.password !== null && form.confirm_password !== null) {
             if (form.confirm_password !== form.password) {
                 errors.confirm_password = 'Пароли не совпадают';
             }
@@ -87,7 +87,11 @@ function EditUserInfoModal({ onClose, onEdited, userInfo }) {
             errors.invalid = 'Допустимы только поля: username, password, confirm_password, email, role, name';
         }
         return errors;
+
     }
+
+
+
 
     function handleChangeUserInfo(e) {
         const { name, value, files } = e.target;
@@ -171,7 +175,7 @@ function EditUserInfoModal({ onClose, onEdited, userInfo }) {
                 <input
                     type="text"
                     name="username"
-                    placeholder="{}"
+                    placeholder="Никнейм"
                     value={form.username}
                     onChange={handleChangeUserInfo}
                     className="edit-user-modal-field"
@@ -180,7 +184,7 @@ function EditUserInfoModal({ onClose, onEdited, userInfo }) {
                     type="text"
                     name="password"
                     placeholder="Новый пароль"
-                    value={form.progress}
+                    value={form.password}
                     onChange={handleChangeUserInfo}
                     className="edit-user-modal-field"
                 />
