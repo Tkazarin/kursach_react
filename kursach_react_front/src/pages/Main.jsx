@@ -48,15 +48,15 @@ export default function Main() {
             <div className="buttons-container">
                 {authorized ? (
                     <button className="main-button myshelf" onClick={() => navigate('/my_shelf')}>
-                        <img src="/my-profile.svg" alt="" style={{ width: 'auto', height: '50px', verticalAlign: 'middle' }}/>
+                        <img src="/my-profile.svg" alt="" style={{ width: 'auto', height: '23px', verticalAlign: 'middle' }}/>
                     </button>
                 ) : (
                     <>
                         <button className="main-button login" onClick={() => navigate('/welcome/user')}>
-                            <img src="/login.svg" alt="" style={{ width: 'auto', height: '50px', verticalAlign: 'middle' }}/>
+                            <img src="/login.svg" alt="" style={{ width: 'auto', height: '23px', verticalAlign: 'middle' }}/>
                         </button>
                         <button className="main-button signup" onClick={() => navigate('/nice_to_meet_you/user')}>
-                            <img src="/sign-up.svg" alt="" style={{ width: 'auto', height: '50px', verticalAlign: 'middle' }}/>
+                            <img src="/sign-up.svg" alt="" style={{ width: 'auto', height: '23px', verticalAlign: 'middle' }}/>
                         </button>
                     </>
                 )}

@@ -13,7 +13,6 @@ function OpinionCard({ opinion, onHidden, onEdit, title, size}) {
 
     const handleDelete = async () => {
         setIsDeleting(true);
-        console.log(`http://localhost:4000/api/v1/into_shelf/${title}/${opinion.id_opinion}`);
         try {
             const token = localStorage.getItem('token');
             const response = await fetch(`http://localhost:4000/api/v1/into_shelf/${title}/opinions/${opinion.id_opinion}`, {

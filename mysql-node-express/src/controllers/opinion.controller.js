@@ -20,6 +20,9 @@ class OpinionController {
         const { id_user, ...userWithoutId } = req.currentUser;
         const title = req.params.book_title;
         const book = await BookModel.findByTitleAndUser(title, id_user);
+        if (!book) {
+            throw new HttpException(404, 'Book was not found.');
+        }
         const opinions = await OpinionModel.findByBookId(book.id_book);
         if (!opinions) {
             throw new HttpException(404, 'Opinions not found for this user');

@@ -32,7 +32,6 @@ function UserSignUp() {
             data = { message: text };
         }
         if (res.ok) {
-            // Логиним пользователя сразу после регистрации
             const loginRes = await fetch('http://localhost:4000/api/v1/users/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -47,7 +46,7 @@ function UserSignUp() {
                 localStorage.setItem('token', loginData.token);
                 setMessage('Регистрация успешна! Перенаправление...');
                 setTimeout(() => {
-                    window.location.href = '/my_shelf';
+                    navigate('/my_shelf');
                 }, 1000);
             } else {
                 setMessage('Пользователь создан, но вход не выполнен: ' + (loginData.message || 'Ошибка входа'));
